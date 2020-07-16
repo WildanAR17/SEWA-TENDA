@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b59a8814-201a-4641-b03a-83819718519b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tenda.`Kode_tenda` AS tenda_Kode_tenda,
+     tenda.`Nama_tenda` AS tenda_Nama_tenda,
+     tenda.`Jenis_tenda` AS tenda_Jenis_tenda,
+     tenda.`Kapasitas` AS tenda_Kapasitas,
+     tenda.`Harga` AS tenda_Harga
+FROM
+     `tenda` tenda]]>
+	</queryString>
+	<field name="tenda_Kode_tenda" class="java.lang.String"/>
+	<field name="tenda_Nama_tenda" class="java.lang.String"/>
+	<field name="tenda_Jenis_tenda" class="java.lang.String"/>
+	<field name="tenda_Kapasitas" class="java.lang.String"/>
+	<field name="tenda_Harga" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="95" backcolor="#000000" uuid="11a0c0b6-8e9a-4754-9e8a-417d41be69e4"/>
+				<staticText>
+					<reportElement style="Title" x="127" y="16" width="370" height="66" uuid="2ccefbd4-3437-4391-9ae0-9404b9196318"/>
+					<textElement>
+						<font size="44" isBold="false"/>
+					</textElement>
+					<text><![CDATA[LAPORAN TENDA]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="100" width="555" height="32" forecolor="#000000" backcolor="#CC0000" uuid="4b512bf1-b1dc-4533-ba7c-3dfed4647c71"/>
+			</frame>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="406" y="112" width="144" height="20" forecolor="#FFFFFF" uuid="7bec4972-6cb5-4b8b-8ac1-20cfc706491a"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<rectangle>
+				<reportElement x="2" y="5" width="553" height="20" uuid="d493f522-6992-4d9f-8a34-0ffe2dae2fa9"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Column header" x="14" y="7" width="111" height="18" forecolor="#000000" uuid="bb6dc301-f3ac-4fbc-be8b-c7eacc917f02"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[KODE TENDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="117" y="7" width="111" height="18" forecolor="#000000" uuid="2e2d616f-c4e9-446d-8419-a344a660816c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[NAMA TENDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="235" y="7" width="111" height="18" forecolor="#000000" uuid="8a80edb3-2821-4b62-8b09-1d6b309cac5c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[JENIS TENDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="354" y="5" width="111" height="18" forecolor="#000000" uuid="49885d11-1281-45d8-8046-1ba8968e4c01"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[KAPASITAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="465" y="7" width="111" height="18" forecolor="#000000" uuid="2fcdb184-d4f0-4489-848e-4e4344d2bbc8"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[HARGA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="ecda908c-0a13-4c00-9344-7427381e4c4f"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="42" y="0" width="52" height="18" uuid="9ae1b03f-a0a0-4771-9649-c879903a188b"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tenda_Kode_tenda}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="117" y="0" width="111" height="18" uuid="20d61032-7c74-4297-97fa-e097e84d8e17"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tenda_Nama_tenda}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="252" y="0" width="65" height="18" uuid="3cc8cffe-1ce5-4474-8f9f-7cc71fd11ca1"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tenda_Jenis_tenda}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="392" y="0" width="73" height="18" uuid="6f502e8e-552f-4bc9-9f4a-a7057169dc71"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tenda_Kapasitas}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="472" y="0" width="53" height="18" uuid="084cb8c0-d024-49d3-bd11-b38f8c9f5693"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tenda_Harga}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="9fa04c9c-ed87-4898-a289-9fc775c2d5e7"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="97251fb5-8dd8-4e26-9177-6a1c1576befc"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="078a66f9-2c25-4f37-8da3-3a870dd674fd"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="60e6496b-d32e-45e5-b59b-2b77ce7efc78"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="875f43b5-6be3-44f9-bc8a-f3869d38e5e6"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
